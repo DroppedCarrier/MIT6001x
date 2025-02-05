@@ -1,0 +1,10 @@
+i = 0
+strLen = len(s)
+numBobs = 0
+while i < (strLen - 2):
+    if s[i] == 'b':
+        if s[i+1] == 'o':
+            if s[i+2] == 'b':
+                numBobs += 1
+    i += 1
+print("Number of times bob occurs is: " + str(numBobs))
