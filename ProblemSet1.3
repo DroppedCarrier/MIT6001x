@@ -1,21 +1,19 @@
-alphaDict = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8, 'i':9, 
-             'j':10, 'k':11, 'l':12, 'm':13, 'n':14, 'o':15, 'p':16, 'q':17, 
-             'r':18, 's':19, 't':20, 'u':21, 'v':22, 'w':23, 'x':24, 'y':25, 
-             'z':26}
-i = 0
-strLen = len(s)
-alphaString = []
-while i < strLen:
-    #alphaString list will need to be appended
-    sLetter = s[i]
-    if i <= strLen - 2:
-        sLetter2 = s[i + 1]
-    dictNum = alphaDict[sLetter]
-    dictNum2 = alphaDict[sLetter2]
-    print('The Letter from s is: ' + sLetter)
-    print('The Number from the dictionary is ' + str(dictNum))
-    if dictNum <= dictNum2:
-        alphaString.append(sLetter)
-        #alphaString.append(sLetter2)
-        print(alphaString)
-    i += 1
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb  5 19:22:04 2025
+
+@author: Bob"""
+s = 'ifagkivkfkfjmdmkcndmdmcvhhffffgghffkdshhgopqrstuvhskdkkilllkjklopqrstuvvv'
+longString = [s[0]]
+currentString = [s[0]]
+for i in range(1, len(s)):
+    if s[i] >= s[i - 1]:
+        currentString += s[i]
+        print('The current string is: ' + str(currentString))
+    else:
+        if len(currentString) > len(longString):
+            longString = currentString
+            print('The longest string is: ' + str(longString))
+        currentString = s[i]
+finalString = max(longString, currentString)
+print('The final string is: ' + finalString)
